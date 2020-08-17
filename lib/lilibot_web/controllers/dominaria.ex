@@ -4,8 +4,14 @@ defmodule LilibotWeb.Dominaria do
   require Logger
 
   def raise(conn, params) do
-    IO.inspect(params, label: "veio nos parametros")
+    params
+    |> Map.fetch("response_url")
+    |> resposta()
 
-    text(conn, Lilictocat.get_oldest_pull_request_without_review())
+    text(conn, "realizando a pesquisa, em breve você receberá a resposta nesse mesmo chat")
+  end
+
+  def resposta(response_url) do
+    IO.inspect(response_url, label: "message to:")
   end
 end
