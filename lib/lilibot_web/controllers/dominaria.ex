@@ -11,7 +11,8 @@ defmodule LilibotWeb.Dominaria do
     text(conn, "realizando a pesquisa, em breve você receberá a resposta nesse mesmo chat")
   end
 
-  def resposta(response_url) do
-    IO.inspect(response_url, label: "message to:")
+  def resposta({:ok, response_url}) do
+    pull_request = Lilictocat.get_oldest_pull_request_without_review()
+    HTTPoison.post(response_url, "{\"body\": \"test\"}")
   end
 end
