@@ -4,10 +4,8 @@ defmodule LilibotWeb.Dominaria do
   require Logger
 
   def raise(conn, params) do
-    params
-    |> Map.fetch("response_url")
-    |> resposta()
-
+    response_url = Map.fetch(params, "response_url")
+    spawn(fn -> resposta(response_url) end)
     text(conn, "realizando a pesquisa, em breve você receberá a resposta nesse mesmo chat")
   end
 
