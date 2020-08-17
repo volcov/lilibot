@@ -14,6 +14,6 @@ defmodule LilibotWeb.Dominaria do
       Lilictocat.get_oldest_pull_request_without_review()
       |> IO.inspect(label: "pull request link -> ")
 
-    HTTPoison.post(response_url, "{\"body\": \"test\"}")
+    HTTPoison.post(response_url, "{\"text\": \"#{pull_request}\"}")
   end
 end
