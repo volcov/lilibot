@@ -4,8 +4,7 @@ defmodule LilibotWeb.Dominaria do
   require Logger
 
   def raise(conn, params) do
-    Logger.info("minha conn -> #{conn}")
-    Logger.info("meus params -> #{params}")
+    IO.inspect(params, label: "veio nos parametros")
 
     text(conn, Lilictocat.get_oldest_pull_request_without_review())
   end
