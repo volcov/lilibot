@@ -10,7 +10,10 @@ defmodule LilibotWeb.Dominaria do
   end
 
   def resposta({:ok, response_url}) do
-    pull_request = Lilictocat.get_oldest_pull_request_without_review()
+    pull_request =
+      Lilictocat.get_oldest_pull_request_without_review()
+      |> IO.inspect(label: "pull request link -> ")
+
     HTTPoison.post(response_url, "{\"body\": \"test\"}")
   end
 end
