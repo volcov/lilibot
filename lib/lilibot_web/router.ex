@@ -11,6 +11,8 @@ defmodule LilibotWeb.Router do
 
   post "/raise", LilibotWeb.Dominaria, :raise
 
+  post "/shallow_raise", LilibotWeb.Dominaria, :shallow_raise
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
